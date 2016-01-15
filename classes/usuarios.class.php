@@ -10,5 +10,6 @@ class usuarios extends CRUD{
     
     public function __construct() {
         parent::__construct();
+        $this->setTabela('usuarios');
     }
 }

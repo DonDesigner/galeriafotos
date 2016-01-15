@@ -10,9 +10,10 @@ define('URLPATH', 'http://localhost/GaleriaImagem/');
 define('BASE', dirname(__FILE__));
 
 
-define('SERVIDOR', '192.168.1.249');
+//define('SERVIDOR', '192.168.1.249');
+define('SERVIDOR', 'localhost');
 define('NOMEUSERDB', 'root');
-define('USERPASS', 'root');
+define('USERPASS', '1234');
 define('NOMEDB', 'galeriafotos');
 
 
