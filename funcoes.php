@@ -46,3 +46,14 @@ function loadJS($arquivo){
         die('Arquivo JS não esncontrado em: <b>' . $jsfile . '</b>');
     }    
 }
+
+
+function incluirPagina($pagina, $pastar='views/')
+{
+    $pagina = $pastar . $pagina. '.php';
+    if(file_exists($pagina)){
+        require_once $pagina;            
+    }else{
+        echo 'Página não encontrada em <b>'.$pagina.'<br';
+    }
+}

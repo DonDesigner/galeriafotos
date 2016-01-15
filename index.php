@@ -4,13 +4,15 @@ require_once 'funcoes.php';
 
 loadCSS('style');
 loadJS('jquery');
-loadModulo('teste', 'inicio');
 
 
-$user = new usuarios();
+
+echo "Cabeçalho<br><hr>";
+incluirPagina('login');
 
 
 /*
+$user = new usuarios();
 $user->inserir(
                 array(
                     "nome_usuario"=>"Thor", 
@@ -49,13 +51,13 @@ if($user->linhas > 0)
 }
   */
 
+/*
 $lista = $user->ler();
 
 foreach ($lista as $user){
     echo "<br>" . $user['email_usuario'];
 }
+*/
 
 
-
-
-echo "<br><br>FINAL.....!";
+echo "<br><p>Rodapé Final.....!</p>";

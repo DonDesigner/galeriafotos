@@ -73,4 +73,7 @@ class CRUD
         $this->linhas = $seleciona->rowCount();
         return $seleciona->fetchAll();
     }
+    
+   
+            
 }
