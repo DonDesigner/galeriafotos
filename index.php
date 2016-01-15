@@ -7,14 +7,14 @@ loadJS('jquery');
 loadModulo('teste', 'inicio');
 
 $user = new usuarios();
-/*if ($user->inserir(array(
+if ($user->inserir(array(
     "nome_usuario"=>"Luiz Felipe", 
     "email_usuario"=>"lfdfgmail.com",
     "senha_usuario"=>"5555")));
 {
     echo "Usuario Cadastrado com sucesso!!";
 }
-*/
+
 
 /*
 if($user->atualizar(array(
