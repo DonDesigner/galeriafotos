@@ -7,8 +7,9 @@ class CRUD
     public $senha       = USERPASS;
     public $banco       = NOMEDB;
     public $conecta     = NULL;
-        
+    public $linhas      = -1;
     private $tabela;
+
     
     function getTabela() {
         return $this->tabela;
@@ -34,11 +35,7 @@ class CRUD
         $sqlInsert = "INSERT INTO `{$this->getTabela()}` ({$colunas}) VALUES ({$valores})";
         
         $inserir = $this->conecta->query($sqlInsert);
-        if ($inserir){
-            return TRUE;
-        } else {
-            return FALSE;
-        }
+        $this->linhas = $inserir->rowCount();
     }
     
     public function atualizar($dados = array(), $where)
@@ -50,13 +47,30 @@ class CRUD
         $campos = implode(', ', $campos);
         
         $sqlAtualizar = "UPDATE `{$this->getTabela()}` SET $campos  WHERE $where"; 
-        
+        //echo "<br>" . $sqlAtualizar . "<br>";
         $atualizar = $this->conecta->query($sqlAtualizar);
-        if($atualizar){
-            return TRUE;
-        } else {
-            return FALSE;
-        }
+        
+        $this->linhas = $atualizar->rowCount();        
     }
     
+    
+    public function deletar($where)
+    {
+        $sqlDeletar = "DELETE FROM `{$this->getTabela()}` WHERE {$where}";
+        
+        $deletar = $this->conecta->query($sqlDeletar);
+        $this->linhas = $deletar->rowCount();
+    }
+    
+    public function ler($campos = null, $where=NULL)
+    {
+        
+        $campos = $campos != "" ? $campos : " * ";
+        $sqlSelecionar = "SELECT {$campos} FROM {$this->tabela}";
+        
+        $seleciona = $this->conecta->query($sqlSelecionar);
+        $seleciona->setFetchMode(PDO::FETCH_ASSOC);
+        $this->linhas = $seleciona->rowCount();
+        return $seleciona->fetchAll();
+    }
 }

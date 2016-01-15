@@ -6,24 +6,56 @@ loadCSS('style');
 loadJS('jquery');
 loadModulo('teste', 'inicio');
 
+
 $user = new usuarios();
-if ($user->inserir(array(
-    "nome_usuario"=>"Luiz Felipe", 
-    "email_usuario"=>"lfdfgmail.com",
-    "senha_usuario"=>"5555")));
-{
-    echo "Usuario Cadastrado com sucesso!!";
-}
 
 
 /*
-if($user->atualizar(array(
-    "nome_usuario" => "Melissa",
-    "email_usuario"=>"cao@mail.com"),
-    "id_usuario=5"));
+$user->inserir(
+                array(
+                    "nome_usuario"=>"Thor", 
+                    "email_usuario"=>"cao@cmail.com",
+                    "senha_usuario"=>"77777"
+                     )
+                );
+
+    echo "Usuario Cadastrado com sucesso!!";
+ */
+
+/*
+$user->atualizar(
+                array(
+                    "nome_usuario" => "Thor Batista",
+                    "email_usuario"=>"cao@supercao.com",
+                    )
+                , "id_usuario=4");
+
+if($user->linhas > 0)
 {
-    echo "Usuário atualizado com suceso!!";
+    echo "<br>Usuário atualizado com suceso!!";
+} else {
+    echo "<br>Nada foi alterado";
 }
-*/
+ */
+
+/*
+$user->deletar("id_usuario=3");
+
+if($user->linhas > 0)
+{
+    echo "Usuario Apagado com sucesso!";
+} else {
+    echo "Não foi possivel apagar o usuario";
+}
+  */
+
+$lista = $user->ler();
+
+foreach ($lista as $user){
+    echo "<br>" . $user['email_usuario'];
+}
+
+
+
 
 echo "<br><br>FINAL.....!";
