@@ -16,6 +16,7 @@ $user = new usuarios();
 }
 */
 
+/*
 if($user->atualizar(array(
     "nome_usuario" => "Melissa",
     "email_usuario"=>"cao@mail.com"),
@@ -23,6 +24,6 @@ if($user->atualizar(array(
 {
     echo "Usuário atualizado com suceso!!";
 }
-
+*/
 
 echo "<br><br>FINAL.....!";

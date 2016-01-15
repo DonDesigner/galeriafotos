@@ -7,8 +7,7 @@ class CRUD
     public $senha       = USERPASS;
     public $banco       = NOMEDB;
     public $conecta     = NULL;
-    
-    
+        
     private $tabela;
     
     function getTabela() {
